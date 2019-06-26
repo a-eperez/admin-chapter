@@ -6,7 +6,8 @@ spec:
     selector:
         app: nginx
     ports:
-      - port: 80
-      - targetPort: 80
-      - nodePort: 30080
-    type: NodePort
+      - port: 80 # Expose Port for the Service (ClusterIP)
+        targetPort: 80 # Container Port
+        nodePort: 30080 # Expose Port for the Node (Public)
+        protocol: TCP
+    type: NodePort # ClusterIP, NodePort, LoadBalancer
